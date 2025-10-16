@@ -8,10 +8,10 @@
 !git clone https://github.com/thiskorea81/ai_basic_datasets.git
 ```
 데이터 경로는 다음과 같습니다.
-```python
-iris1 '/content/ai_basic_datasets/Iris1.csv'
-iris2 '/content/ai_basic_datasets/Iris2.csv'
-```
+
+iris1: '/content/ai_basic_datasets/Iris1.csv'
+iris2: '/content/ai_basic_datasets/Iris2.csv'
+
 2. 데이터셋 불러오기
 ```python
 import pandas as pd
