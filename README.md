@@ -10,6 +10,7 @@
 데이터 경로는 다음과 같습니다.
 
 iris1: '/content/ai_basic_datasets/Iris1.csv'
+
 iris2: '/content/ai_basic_datasets/Iris2.csv'
 
 2. 데이터셋 불러오기
