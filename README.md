@@ -26,4 +26,16 @@ df1.head() # dataset 맨 위 5개 데이터 확인하기
 df = pd.concat([df1, df2])
 df
  ```
-   
+### 위 작업을 하나로 합쳐놓았습니다.   
+```python
+# 1. 데이터 다운로드
+!git clone https://github.com/thiskorea81/ai_basic_datasets.git
+# 2. 데이터셋 불러오기
+import pandas as pd
+df1 = pd.read_csv('/content/ai_basic_datasets/Iris1.csv', encoding='cp949')
+df2 = pd.read_csv('/content/ai_basic_datasets/Iris2.csv', encoding='cp949')
+df1.head() # dataset 맨 위 5개 데이터 확인하기
+# 3. 두 개의 데이터 합치기
+df = pd.concat([df1, df2])
+df
+```
