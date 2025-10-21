@@ -81,10 +81,37 @@ plt.show()
 ```
 ### 4.2.3 박스 플롯으로 이상치 확정하기
 ```python
-sns.catplot(y = '꽃받침 길이', x = '종류', kind = 'box', data = df3, hue ='종류')
-sns.catplot(y = '꽃받침 너비', x = '종류', kind = 'box', data = df3, hue = '종류')
-sns.catplot(y = '꽃잎 길이', x = '종류', kind = 'box', data = df3, hue = '종류')
-sns.catplot(y = '꽃잎 너비', x = '종류', kind = 'box', data = df3, hue = '종류')
+# 모듈 불러오기
+import koreanize_matplotlib
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# figure 크기 설정
+plt.figure(figsize=(12, 10))
+
+# 1. 꽃받침 길이
+plt.subplot(2, 2, 1)
+sns.boxplot(y='꽃받침 길이', x='종류', data=df3, hue='종류')
+plt.title('꽃받침 길이(Boxplot)')
+
+# 2. 꽃받침 너비
+plt.subplot(2, 2, 2)
+sns.boxplot(y='꽃받침 너비', x='종류', data=df3, hue='종류')
+plt.title('꽃받침 너비(Boxplot)')
+
+# 3. 꽃잎 길이
+plt.subplot(2, 2, 3)
+sns.boxplot(y='꽃잎 길이', x='종류', data=df3, hue='종류')
+plt.title('꽃잎 길이(Boxplot)')
+
+# 4. 꽃잎 너비
+plt.subplot(2, 2, 4)
+sns.boxplot(y='꽃잎 너비', x='종류', data=df3, hue='종류')
+plt.title('꽃잎 너비(Boxplot)')
+
+# 범례 중복 방지 및 레이아웃 조정
+plt.tight_layout()
+plt.show()
 ```
 ### 4.2.4 이상치 제거하기
 ```python
