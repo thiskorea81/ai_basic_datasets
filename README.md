@@ -45,16 +45,39 @@ df
 ### 4.2.2 히스토그램으로 이상치 확인하기
 ```python
 # 모듈 설치
-!pip install koreanize-matplotlib # 한글 폰트 설정 라이브러리 설치
+!pip install koreanize-matplotlib
+
 # 모듈 불러오기
-import koreanize_matplotlib # 한글 출력 가능한 그래프 모듈
-import matplotlib.pyplot as plt # 그래프 그리기에 필요한 모듈
-import seaborn as sns # 시각화하기 위해 seaborn 모듈 불러오기
-#히스토그램으로 확인하기
-sns.histplot(data = df3, x = '꽃받침 길이', hue = '종류')
-sns.histplot(data = df3, x = '꽃받침 너비', hue = '종류')
-sns.histplot(data = df3, x = '꽃잎 길이', hue = '종류')
-sns.histplot(data = df3, x = '꽃잎 너비', hue = '종류')
+import koreanize_matplotlib  # 한글 출력 가능한 그래프 모듈
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# figure 크기 설정
+plt.figure(figsize=(12, 10))
+
+# 1. 꽃받침 길이
+plt.subplot(2, 2, 1)
+sns.histplot(data=df3, x='꽃받침 길이', hue='종류', kde=True)
+plt.title('꽃받침 길이 분포')
+
+# 2. 꽃받침 너비
+plt.subplot(2, 2, 2)
+sns.histplot(data=df3, x='꽃받침 너비', hue='종류', kde=True)
+plt.title('꽃받침 너비 분포')
+
+# 3. 꽃잎 길이
+plt.subplot(2, 2, 3)
+sns.histplot(data=df3, x='꽃잎 길이', hue='종류', kde=True)
+plt.title('꽃잎 길이 분포')
+
+# 4. 꽃잎 너비
+plt.subplot(2, 2, 4)
+sns.histplot(data=df3, x='꽃잎 너비', hue='종류', kde=True)
+plt.title('꽃잎 너비 분포')
+
+# 전체 간격 조정
+plt.tight_layout()
+plt.show()
 ```
 ### 4.2.3 박스 플롯으로 이상치 확정하기
 ```python
