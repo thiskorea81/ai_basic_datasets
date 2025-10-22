@@ -145,3 +145,31 @@ sns.heatmap(data = irisData, annot = True, fmt = '.2f', linewidth = .5,
 cmap = 'RdYlGn_r')
 plt.show()
 ```
+
+# 1.5 모델 학습과 성능 평가
+
+### 1. 훈련 데이터, 테스트 데이터 준비
+```python
+X = df3[['꽃잎 길이', '꽃잎 너비']] # 독립 변수(핵심속성)
+y = df3['종류']                    # 종속 변수
+```
+
+```python
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=7)
+```
+
+### 2.1 모델 생성(기계학습)
+```python
+from sklearn.neighbors import KNeighborsClassfier
+model = KNeighborsClassifier() # k-최근접 이웃 모델 생성
+```
+### 2.2 모델 훈련
+```python
+model.fit(X_train, y_train)
+```
+### 3. 성능평가
+### 3.1 테스트데이터로 정확도 확인
+### 3.2 혼동행렬로 성능 확인
+### 3.3 모델 개선
+### 3.4 모델 활용
