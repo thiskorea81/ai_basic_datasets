@@ -40,9 +40,11 @@ df = pd.concat([df1, df2])
 df
 ```
 ### 4.1 결측치 확인하고 처리하기
+### 4.1.1 결측치 확인 isna()
+### 4.1.2 결측치 제거 dropna()
 ### 4.2 이상치 확인하고 처리하기
-### 4.2.1 기초 통계량으로 이상치 확인하기
-### 4.2.2 히스토그램으로 이상치 확인하기
+### 4.2.1 기초 통계량으로 이상치 확인하기 describe()
+### 4.2.2 히스토그램으로 이상치 확인하기 histplot()
 ```python
 # 모듈 설치
 !pip install koreanize-matplotlib
@@ -79,7 +81,7 @@ plt.title('꽃잎 너비 분포')
 plt.tight_layout()
 plt.show()
 ```
-### 4.2.3 박스 플롯으로 이상치 확정하기
+### 4.2.3 박스 플롯으로 이상치 확정하기 boxplot()
 ```python
 # 모듈 불러오기
 import koreanize_matplotlib
@@ -113,7 +115,7 @@ plt.title('꽃잎 너비(Boxplot)')
 plt.tight_layout()
 plt.show()
 ```
-### 4.2.4 이상치 제거하기
+### 4.2.4 이상치 제거하기 drop()
 ```python
 Q1 = df3.groupby('종류')['꽃받침 길이'].quantile(0.25) # 제1사분위수
 Q3 = df3.groupby('종류')['꽃받침 길이'].quantile(0.75) # 제3사분위수
@@ -145,6 +147,7 @@ sns.heatmap(data = irisData, annot = True, fmt = '.2f', linewidth = .5,
 cmap = 'RdYlGn_r')
 plt.show()
 ```
+# 1.4 기계학습 유형과 알고리즘 선정
 
 # 1.5 모델 학습과 성능 평가
 
