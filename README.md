@@ -173,6 +173,41 @@ model.fit(X_train, y_train)
 ```
 ### 3. 성능평가
 ### 3.1 테스트데이터로 정확도 확인
+```python
+acc = model.score(X_test, y_test) # 모델의 정확도를 계산하여 저장
+print('테스트 데이터 점수: {:.3f}'.format(acc)) # 정확도(소수점 3자리 출력)
+```
 ### 3.2 혼동행렬로 성능 확인
+```python
+from sklearn.metrics import confusion_matrix, classification_report
+predicted = model.predict(X_test) # 테스트 데이터에 대한 예측값
+classNames = pd.unique(df3['종류'])
+cm = confusion_matrix(y_test, predicted) # 혼동행렬(실젯값과 예측값)
+df_cm = pd.DataFrame(cm, index = [i for i in classNames],
+columns = [i for i in classNames])
+sns.heatmap(data = df_cm, annot = True, fmt = '0.2f', cmap = 'YlGnBu')
+plt.xlabel('예측값')
+plt.ylabel('실젯값')
+plt.show( )
+```
 ### 3.3 모델 개선
+```python
+import numpy as np
+acc = []
+k_range = range(1, 20)  # 정확도를 저장할 리스트 변수
+
+for k in k_range: # 이웃의 수(k)를 1~ 19까지 변화시키기 위한 반복문
+  model = KNeighborsClassifier(n_neighbors = k) # 이웃의 수를 k로 지정
+  model.fit(X_train, y_train)
+  acc.append(model.score(X_test, y_test))
+
+plt.scatter(k_range, acc) # num과 acc의 관계 산점도
+plt.xlabel('이웃의 수') # x축 라벨
+plt.ylabel('정확도') # y축 라벨
+plt.show( )
+```
 ### 3.4 모델 활용
+```python
+new = [[1.0, 1.5]] # 꽃잎의 길이가 1.0cm, 꽃잎의 너비가 1.5cm인 자료료
+print(model.predict(new) )
+```
