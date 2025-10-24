@@ -164,7 +164,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 ### 2.1 모델 생성(기계학습)
 ```python
-from sklearn.neighbors import KNeighborsClassfier
+from sklearn.neighbors import KNeighborsClassifier
 model = KNeighborsClassifier() # k-최근접 이웃 모델 생성
 ```
 ### 2.2 모델 훈련
